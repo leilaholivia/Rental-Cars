@@ -1,5 +1,5 @@
 button{
-    background-color: #4CAF50;
+    background-color: rgb(56, 0, 0);
     color:white;
 }
 h2, h3, p{
@@ -7,9 +7,37 @@ h2, h3, p{
     font-family: 'Montserrat', sans-serif;
 }
 p{
-    border-style: solid;
+   /* border-style: solid; */
     font-family: 'Montserrat', sans-serif;
 }
 body{
     background-color: black;
 }
+
+label{
+    color:white;
+    font-family: 'Montserrat', sans-serif;
+    display:inline-block;
+    width:100px;
+    text-align:right;
+}
+
+input{
+    width: 400;
+    box-sizing: border-box;
+    border: 1px solid #299;
+    font: .8em sans-serif;
+}
+
+.econInfoBox{
+    border-style: solid;
+    border: 3px solid rgb(56, 0, 0) ;
+    display: block;
+}
+.midInfoBox{
+    border-style: solid;
+    border: 3px solid rgb(56, 0, 0) ;
+    display: block;
+}
+
+

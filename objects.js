@@ -3,8 +3,8 @@
 //
 var carRental = {
     name: "Enterprise Car Rental",
-    TypesAvailable: [{ type: "Economy", numAvailable: 5, numRented: 0},
-        { type: "Midsize", numAvailable: 5, numRented: 0 }
+    TypesAvailable: [{ type: "Economy", numAvailable: 5, numRented: 0, price:200},
+        { type: "Midsize", numAvailable: 5, numRented: 0, price: 500 }
     ],
     getAvailability: function() {
         
@@ -45,7 +45,16 @@ var carRental = {
     }
 };
 
+var Rental = {
+    Renter:[{firstName: "Samir", lastName:"Hakim", carType: "Midsize", price:"100"}, 
+            {firstName: "Aliya", lastName:"Winter", carType:"Economy", price:"300"},
+            {firstName: "Dina", lastName: "Meder", carType:"Midsize", price:"200"}
+           ]
+}
+
 document.getElementById("businessName").innerHTML = carRental.name;
+
+
 
 function updateInfo(){
     document.getElementById("econNum").innerHTML = carRental.getAvailability().EconomyCarsNum;
@@ -54,3 +63,29 @@ function updateInfo(){
     document.getElementById("midCar").innerHTML = carRental.TypesAvailable[1].type;
 
 }
+
+function submitForm(){
+    var newCarType;
+    var newPrice;
+    if ((document.getElementById("qCarType").value="Midsize")== true){
+        carRental.rentMid();
+        newCarType ="Midsize";
+        newPrice = 1000;
+    }
+    if ((document.getElementById("qCarType").value="Economy")== true){
+        carRental.rentEcon();
+        newCarType = "Economy";
+        newPrice = 500;
+    }
+    
+    var newFirstName = document.getElementById("qFirstName").value();
+    var newLastName =document.getElementById("qLastName").value();
+   
+    Rental.Renter.push({firstName: newFirstName, lastName: newLastName, carType: newCarType, price: newPrice});
+    console.log(Rental.Renter);
+}
+
+
+
+
+

@@ -13,28 +13,51 @@
     <h2>Business Name</h2>
     <p id="businessName"></p>
     
-    <h3>Car Type:</h3>
-    <p id="econCar"></p>
-    <h3>Economy Cars Available</h3>
-    <p id="econNum"></p>
+    <div class="econInfoBox">
+        <h3>Car Type:</h3>
+        <p id="econCar"></p>
+        <h3>Economy Cars Available</h3>
+        <p id="econNum"></p>
+    </div><br>
     
-    <h3>Car Type:</h3>
-    <p id="midCar"></p>
-    <h3>Midsize Cars Available</h3>
-    <p id="midNum"></p>
+    <div class="midInfoBox">
+        <h3>Car Type:</h3>
+        <p id="midCar" ></p>
+        <h3>Midsize Cars Available</h3>
+        <p id="midNum"></p>
+    </div>
+    
+    
     
     <!--Instead of using OnClick attribute, in js file you can use
         document.getElementById('upbutton').onclick = function(){}
     -->
     <button OnClick="updateInfo()">Update Availability</button>
     <h3>RENTING</h3>
-    <button OnClick="carRental.rentMid()">Rent out 1 Midsize Car</button>
-    <button OnClick="carRental.rentEcon()">Rent out 1 Economy Car</button>
+ <!--   <button OnClick="carRental.rentMid()">Rent out 1 Midsize Car</button>
+    <button OnClick="carRental.rentEcon()">Rent out 1 Economy Car</button> -->
+    <div type= "content" id="rentalForm" display="none">
+        <form type = "#">
+            
+            <select id="qCarType">
+                <option OnClick="carRental.rentEcon()" selected>Economy</option>
+                <option OnClick="carRental.rentMid()">Midsize</option>
+            </select><br><br>
+            
+            <label for="qFirstName">First Name:</label>
+            <input type="text" name="firstName" id="qFirstName" max-length="100"><br><br>
+            
+            <label for="qLastName">Last Name:</label>
+            <input type="text" name="lastName" id= "qLastName" max-length="100" ><br><br>
+            
+            <input type="submit" OnClick="submitForm()" >
+        </form>
+    </div>
     
-    <h3>RETURNING</h3>
+    <!--<h3>RETURNING</h3>
     <button OnClick="carRental.returnMid()">Return 1 Midsize Car</button>
     <button OnClick="carRental.returnEcon()">Return 1 Economy Car</button>
-    
+    -->
     <script src="objects.js"></script>
 </body>
 </html>
