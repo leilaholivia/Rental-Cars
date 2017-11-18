@@ -2,8 +2,8 @@
 
 //
 var carRental = {
-    name: "Enterprise Car Rental",
-    TypesAvailable: [{ type: "Economy", numAvailable: 5, numRented: 0, price:200},
+    name: "HackStreet Car Rental",
+    TypesAvailable: [{ type: "Economy", numAvailable: 5, numRented: 0, price:1000},
         { type: "Midsize", numAvailable: 5, numRented: 0, price: 500 }
     ],
     getAvailability: function() {
@@ -50,10 +50,24 @@ var Rental = {
             {firstName: "Aliya", lastName:"Winter", carType:"Economy", price:"300"},
             {firstName: "Dina", lastName: "Meder", carType:"Midsize", price:"200"}
            ]
-}
+};
 
 document.getElementById("businessName").innerHTML = carRental.name;
 
+function showCarInfo(){
+ console.log("Hello World");
+
+    if((document.getElementById("qCarType").value == "Economy")==true){
+        console.log("showCarInfo if Econ");
+        document.getElementById("econInfoBox").setAttribute("style", "display:block");
+    }
+    if ((document.getElementById("qCarType").value == "Midsize")==true){
+        console.log("showCarInfo if Mid");
+        document.getElementById("midInfoBox").style.display = "block";
+
+    }
+  
+}
 
 
 function updateInfo(){
@@ -67,22 +81,28 @@ function updateInfo(){
 function submitForm(){
     var newCarType;
     var newPrice;
-    if ((document.getElementById("qCarType").value="Midsize")== true){
+    var newFirstName;
+    var newLastName;
+  
+    
+    if ((document.getElementById("qCarType").value==="Midsize")== true){
+        //need to find out how to get to this section of the code
+        console.log("rentMid");
         carRental.rentMid();
-        newCarType ="Midsize";
-        newPrice = 1000;
+        newCarType = carRental.TypesAvailable.carType[0].type;
+        newPrice = carRental.TypesAvailable[0].price;
+      
     }
     if ((document.getElementById("qCarType").value="Economy")== true){
         carRental.rentEcon();
-        newCarType = "Economy";
-        newPrice = 500;
+        newCarType = carRental.TypesAvailable.carType[0].type;
+        newPrice = carRental.TypesAvailable[1].price;
     }
-    
-    var newFirstName = document.getElementById("qFirstName").value();
-    var newLastName =document.getElementById("qLastName").value();
-   
+    newFirstName = document.getElementById("qFirstName").value;
+    newLastName = document.getElementById("qLastName").value;
+
     Rental.Renter.push({firstName: newFirstName, lastName: newLastName, carType: newCarType, price: newPrice});
-    console.log(Rental.Renter);
+
 }
 
 
