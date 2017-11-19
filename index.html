@@ -7,35 +7,36 @@
     <title>Car Rental</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Faster+One" rel="stylesheet">
 </head>
 
 <body>
 
     <h2 id="businessName"></h2>
-    <p>Please select the car type you  want to rent?</p>
+    <p>Please select the car type you want to rent?</p>
     
                     <select id="qCarType" onChange="showCarInfo()">
-                        
                         <option selected>Select:</option>
-                        <option OnClick="carRental.rentEcon()">Economy</option>
-                        <option OnClick="carRental.rentMid()">Midsize</option>
-                        
+                        <option OnClick="carRental.rentEcon()" value="Economy">Economy</option>
+                        <option OnClick="carRental.rentMid()" value="Midsize">Midsize</option>
                     </select><br><br>
             
-    <div class="econInfoBox" style = "display:none" >
+    <div id="InfoBox" style="display:none" >
         <h3>Car Type:</h3>
-        <p id="econCar"></p>
+        <p id="displayCar"></p>
         <h3># of Cars Available</h3>
-        <p id="econNum"></p>
+        <p id="displayNum"></p>
+        <h3>Price</h3>
+        <p id="displayPrice"></p>
     </div><br>
     
-    <div class="midInfoBox" style = "display:none" >
+  <!--  <div class="midInfoBox" style = "display:none" >
         <h3>Car Type:</h3>
         <p id="midCar" ></p>
         <h3># of Cars Available</h3>
         <p id="midNum"></p>
     </div>
-    
+  -->    
     <!--Instead of using OnClick attribute, in js file you can use
         document.getElementById('upbutton').onclick = function(){}
     
@@ -45,13 +46,14 @@
     <button OnClick="carRental.rentEcon()">Rent out 1 Economy Car</button> -->
     <div type= "content" id="rentalForm" display="none">
         <form type = "#">
+            
             <label for="qFirstName">First Name:</label>
             <input type="text" name="firstName" id="qFirstName" max-length="100" required><br><br>
-            
+           
             <label for="qLastName">Last Name:</label>
             <input type="text" name="lastName" id= "qLastName" max-length="100" required><br><br>
             
-            <input type="submit" OnClick="submitForm()" >
+            <input type="button" value="Submit" OnClick="submitForm()">
         </form>
     </div>
     
