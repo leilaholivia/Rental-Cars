@@ -1,6 +1,6 @@
 /*global*/
 
-//
+
 //**********************CAR RENTAL OBJECT*******************************
 var carRental = {
     name: "HackStreet Car Rental",
@@ -14,6 +14,7 @@ var carRental = {
             {firstName: "Aliya", lastName:"Winter", carType:"Economy", price:"300"},
             {firstName: "Dina", lastName: "Meder", carType:"Midsize", price:"200"}
         ],
+    RenterNames:["Samir Hakim", "Aliya Winter", "Dina Meder"],
         
     getAvailability: function() {
         
@@ -56,7 +57,9 @@ var carRental = {
 //*****************************WHEN PAGE LOADS************************************
 
 document.getElementById("businessName").innerHTML = carRental.name;
-
+function RentersView(){
+document.getElementById("rentersDiv").appendChild(createList(carRental.RenterNames));
+}
 //*************AFTER A CARTYPE IS PICKED IN THE DROPDOWN, DISPLAY CAR TYPE INFO***************
 
 function showCarInfo(){
@@ -88,6 +91,23 @@ function updateInfo(){
 //  document.getElementById("midCar").innerHTML = carRental.TypesAvailable[1].type;
 
 }
+
+
+function createList(array){
+   
+    var renterList = document.createElement("select");
+   
+    for (var i = 0; i < array.length; i++){
+     var renterIndv = document.createElement("option");
+     renterIndv.appendChild(document.createTextNode(array[i]));
+     renterList.appendChild(renterIndv);
+   
+    }
+
+    return renterList
+    
+}
+
 
 ///***************************AFTER FORM IS SUBMITTED***************************************
 function submitForm(){
@@ -121,10 +141,8 @@ function submitForm(){
     newLastName = document.getElementById("qLastName").value;
     console.log(carRental.currentRenters);
     carRental.currentRenters.push({firstName: newFirstName, lastName: newLastName, carType: newCarType, price: newPrice});
-     
+    carRental.RenterNames.push(newFirstName + " " + newLastName); 
 }
-
-
 
 
 
